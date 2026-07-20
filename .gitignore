@@ -1,0 +1,27 @@
+# Java / Maven
+target/
+*.jar
+*.war
+
+# Node.js
+node_modules/
+dist/
+
+# .NET
+bin/
+obj/
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+# Logs
+*.log
+
+# Environment
+.env
+
+# OS
+.DS_Store
+Thumbs.db
