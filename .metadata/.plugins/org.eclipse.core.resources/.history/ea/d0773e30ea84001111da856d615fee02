@@ -1,0 +1,9 @@
+package com.documentcentralizer.entity;
+@Entity
+@Table(name = "users")
+@Getter
+@Setter
+@NoArgsConstructor
+public class User extends BaseEntity{
+
+}

@@ -1,0 +1,5 @@
+package com.documentcentralizer.service.impl;
+
+public class AuthServiceImpl {
+
+}

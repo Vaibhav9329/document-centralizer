@@ -1,0 +1,5 @@
+package com.documentcentralizer.dto;
+
+public class RegisterRequestDTO {
+
+}
