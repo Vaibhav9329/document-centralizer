@@ -1,7 +1,40 @@
+<<<<<<< HEAD
 import React from "react";
 import { Link } from "react-router-dom";
 
 export default function Login() {
+=======
+import React, { useContext, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { AuthContext } from "../context/AuthContext";
+import { loginUser } from "../services/authService";
+
+export default function Login() {
+    const { login } = useContext(AuthContext);
+    const navigate = useNavigate();
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState("");
+    const [loading, setLoading] = useState(false);
+
+    const handleSubmit = async (e) => {
+        e.preventDefault();
+        setError("");
+        setLoading(true);
+        try {
+            const user = await loginUser({ email, password });
+            login(user);
+            if (user.role === "admin") navigate("/admin");
+            else if (user.role === "superadmin") navigate("/superadmin");
+            else navigate("/user");
+        } catch (err) {
+            setError("Invalid credentials. Please try again.");
+        } finally {
+            setLoading(false);
+        }
+    };
+
+>>>>>>> 9e453f3 (feat(user): implement user module with dashboard and document management)
     return (
         <section className="min-h-screen bg-gradient-to-br from-blue-50 to-slate-100 flex items-center justify-center px-4">
             <div className="w-full max-w-md bg-white rounded-2xl shadow-2xl border border-gray-200 p-8">
@@ -26,8 +59,20 @@ export default function Login() {
                     </p>
                 </div>
 
+<<<<<<< HEAD
                 {/* Form */}
                 <form className="space-y-4">
+=======
+                {/* Error */}
+                {error && (
+                    <div className="mb-3 p-3 bg-red-50 border border-red-200 rounded-lg text-red-600 text-sm text-center">
+                        {error}
+                    </div>
+                )}
+
+                {/* Form */}
+                <form className="space-y-4" onSubmit={handleSubmit}>
+>>>>>>> 9e453f3 (feat(user): implement user module with dashboard and document management)
 
                     {/* Email */}
                     <div>
@@ -42,6 +87,12 @@ export default function Login() {
                             type="email"
                             id="email"
                             placeholder="Enter your email"
+<<<<<<< HEAD
+=======
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                            required
+>>>>>>> 9e453f3 (feat(user): implement user module with dashboard and document management)
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         />
                     </div>
@@ -59,6 +110,12 @@ export default function Login() {
                             type="password"
                             id="password"
                             placeholder="Enter your password"
+<<<<<<< HEAD
+=======
+                            value={password}
+                            onChange={(e) => setPassword(e.target.value)}
+                            required
+>>>>>>> 9e453f3 (feat(user): implement user module with dashboard and document management)
                             className="w-full px-4 py-3 border border-gray-300 rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
                         />
                     </div>
@@ -66,9 +123,16 @@ export default function Login() {
                     {/* Button */}
                     <button
                         type="submit"
+<<<<<<< HEAD
                         className="w-full bg-blue-600 hover:bg-blue-700 transition duration-300 text-white font-semibold py-3 rounded-lg"
                     >
                         Sign In
+=======
+                        disabled={loading}
+                        className="w-full bg-blue-600 hover:bg-blue-700 transition duration-300 text-white font-semibold py-3 rounded-lg disabled:opacity-60 disabled:cursor-not-allowed"
+                    >
+                        {loading ? "Signing in..." : "Sign In"}
+>>>>>>> 9e453f3 (feat(user): implement user module with dashboard and document management)
                     </button>
 
                 </form>
