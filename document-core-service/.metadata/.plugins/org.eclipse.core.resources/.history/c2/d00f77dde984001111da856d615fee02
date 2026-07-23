@@ -1,0 +1,8 @@
+package com.documentcentralizer.entity;
+
+@Getter
+@Setter
+@MappedSuperclass
+public class BaseEntity {
+
+}

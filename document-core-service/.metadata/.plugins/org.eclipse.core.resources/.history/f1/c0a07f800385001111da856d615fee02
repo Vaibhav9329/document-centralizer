@@ -1,0 +1,9 @@
+package com.documentcentralizer.service;
+
+
+public interface AuthService {
+	AuthResponseDTO register(RegisterRequestDTO request);
+
+    AuthResponseDTO login(LoginRequestDTO request);
+
+}

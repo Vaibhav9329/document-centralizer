@@ -1,0 +1,5 @@
+package com.documentcentralizer.entity;
+
+public class User {
+
+}
