@@ -1,1 +1,11 @@
 @import "tailwindcss";
+<<<<<<< HEAD
+=======
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f8fafc;
+  font-family: "Inter", sans-serif;
+}
+>>>>>>> 9e453f3 (feat(user): implement user module with dashboard and document management)
